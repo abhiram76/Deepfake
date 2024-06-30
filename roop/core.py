@@ -161,11 +161,11 @@ from time import sleep
  
 # print
 
-print("Faceswap AI (by abhiram76)")
+print("Starting web interface ")
 
 print("   ")
 
-print("source: roop-unleashed")
+print("    ")
 
 print("    ")
 
