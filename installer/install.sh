@@ -1,7 +1,4 @@
-# install script by abhiram76
-
-#installing cuda toolkit 11-8
-#!/bin/sh
+#!/usr/bin/env bash
 
 echo "installer script by abhiram76\n"
 echo "installing packages"
