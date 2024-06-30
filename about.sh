@@ -6,6 +6,7 @@ echo "version:  0.21.9"
 #updates
 echo "   "
 echo "last updated: 30/6/24"
+echo "status: working✅"
 echo "    "
 #source
 echo "source: roop-unleashed"
