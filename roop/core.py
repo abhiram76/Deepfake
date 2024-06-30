@@ -171,7 +171,7 @@ print("    ")
 
 print("Updated : 30/06/2024")
 
-print("open the public url now")
+print("     ")
  
 # Waiting for 7 seconds to clear the screen
 
