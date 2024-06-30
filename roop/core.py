@@ -153,6 +153,64 @@ def update_status(message: str) -> None:
         call_display_ui(message)
 
 
+#section 2  (start here)
+
+import os
+
+from time import sleep
+ 
+# some text
+
+print("Faceswap AI (by abhiram76)")
+
+print("   ")
+
+print("source: roop-unleashed")
+
+print("    ")
+
+print("Updated : 30/06/2024")
+
+print("open the public url now")
+ 
+# Waiting for 7 seconds to clear the screen
+
+sleep(7)
+
+os.system('clear')
+
+
+
+#section 2 (end here)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def start() -> None:
