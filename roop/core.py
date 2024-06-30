@@ -157,7 +157,7 @@ def update_status(message: str) -> None:
 
 def start() -> None:
     if roop.globals.headless:
-        print('Headless mode currently unsupported - starting UI!')
+        print('Roop Repacked by abhiram76')
         # faces = extract_face_images(roop.globals.source_path,  (False, 0))
         # roop.globals.INPUT_FACES.append(faces[roop.globals.source_face_index])
         # faces = extract_face_images(roop.globals.target_path,  (False, util.has_image_extension(roop.globals.target_path)))
@@ -320,7 +320,7 @@ def batch_process(files:list[ProcessEntry], use_new_method) -> None:
                 process_mgr.run_batch_inmem(v.filename, v.finalname, v.startframe, v.endframe, fps,roop.globals.execution_threads, skip_audio)
                 
             if not roop.globals.processing:
-                end_processing('Processing stopped!')
+                end_processing('Processing stopped! - canceled by user')
                 return
             
             video_file_name = v.finalname
@@ -346,11 +346,11 @@ def batch_process(files:list[ProcessEntry], use_new_method) -> None:
                             os.remove(video_file_name)
                     else:
                         shutil.move(video_file_name, destination)
-                update_status(f'\nProcessing {os.path.basename(destination)} took {time() - start_processing} secs')
+                update_status(f'\nSwaping Started (please wait) {os.path.basename(destination)} took {time() - start_processing} secs')
 
             else:
                 update_status(f'Failed processing {os.path.basename(v.finalname)}!')
-    end_processing('Finished')
+    end_processing('Roop repacked by abhiram76')
 
 
 def end_processing(msg:str):
