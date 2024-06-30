@@ -2,4 +2,8 @@
 #version info
 echo "Faceswap AI"
 echo "author: abhiram76"
-echo "
+echo "version:  0.21.9"
+#updates
+echo "   "
+echo "last updated: 30/6/24"
+
