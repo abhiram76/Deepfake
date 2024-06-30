@@ -40,7 +40,7 @@ manual_masking = False
 def faceswap_tab():
     global no_face_choices, previewimage
 
-    with gr.Tab("🎭 Face Swap"):
+    with gr.Tab("FaceSwap (github.com/abhiram76)"):
         with gr.Row(variant='panel'):
             with gr.Column(scale=2):
                 with gr.Row():
@@ -58,15 +58,15 @@ def faceswap_tab():
                             selected_mask_engine = gr.Dropdown(["None", "Clip2Seg", "DFL XSeg"], value="None", label="Face masking engine")
                             clip_text = gr.Textbox(label="List of objects to mask and restore back on fake face", value="cup,hands,hair,banana", interactive=False)
                             bt_preview_mask = gr.Button("👥 Show Mask Preview", variant='secondary')
-                        bt_remove_selected_input_face = gr.Button("❌ Remove selected", size='sm')
-                        bt_clear_input_faces = gr.Button("💥 Clear all", variant='stop', size='sm')
+                        bt_remove_selected_input_face = gr.Button("Remove selected faces", size='sm')
+                        bt_clear_input_faces = gr.Button("Delete uploaded imgs", variant='stop', size='sm')
                     with gr.Column(min_width=160):
                         target_faces = gr.Gallery(label="Target faces", allow_preview=False, preview=False, height=128, object_fit="scale-down", columns=8)
-                        bt_remove_selected_target_face = gr.Button("❌ Remove selected", size='sm')
+                        bt_remove_selected_target_face = gr.Button("Remove selected", size='sm')
                         bt_add_local = gr.Button('Add local files from', size='sm')
                         local_folder = gr.Textbox(show_label=False, placeholder="/content/", interactive=True)
                 with gr.Row(variant='panel'):
-                    bt_srcfiles = gr.Files(label='Source File(s)', file_count="multiple", file_types=["image", ".fsz"], elem_id='filelist', height=233)
+                    bt_srcfiles = gr.Files(label='Input File(s)', file_count="multiple", file_types=["image", ".fsz"], elem_id='filelist', height=233)
                     bt_destfiles = gr.Files(label='Target File(s)', file_count="multiple", file_types=["image", "video"], elem_id='filelist', height=233)
                 with gr.Row(variant='panel'):
                     gr.Markdown('')
@@ -77,14 +77,14 @@ def faceswap_tab():
                 maskimage = gr.ImageEditor(label="Manual mask Image", sources=["clipboard"], transforms="", type="numpy",
                                              brush=gr.Brush(color_mode="fixed", colors=["rgba(255, 255, 255, 1"]), interactive=True, visible=False)
                 with gr.Row(variant='panel'):
-                        fake_preview = gr.Checkbox(label="Face swap frames", value=False)
-                        bt_refresh_preview = gr.Button("🔄 Refresh", variant='secondary', size='sm')
-                        bt_use_face_from_preview = gr.Button("Use Face from this Frame", variant='primary', size='sm')
+                        fake_preview = gr.Checkbox(label="Frame", value=False)
+                        bt_refresh_preview = gr.Button("Refresh", variant='secondary', size='sm')
+                        bt_use_face_from_preview = gr.Button("Use Face from current Frame", variant='primary', size='sm')
                 with gr.Row():
                     preview_frame_num = gr.Slider(1, 1, value=1, label="Frame Number", info='0:00:00', step=1.0, interactive=True)
                 with gr.Row():
                     text_frame_clip = gr.Markdown('Processing frame range [0 - 0]')
-                    set_frame_start = gr.Button("⬅ Set as Start", size='sm')
+                    set_frame_start = gr.Button("⬅ Set as start", size='sm')
                     set_frame_end = gr.Button("➡ Set as End", size='sm')
         with gr.Row(visible=False) as dynamic_face_selection:
             with gr.Column(scale=2):
@@ -112,7 +112,7 @@ def faceswap_tab():
 
         with gr.Row(variant='panel'):
             with gr.Column(scale=1):
-                video_swapping_method = gr.Dropdown(["Extract Frames to media","In-Memory processing"], value="In-Memory processing", label="Select video processing method", interactive=True)
+                video_swapping_method = gr.Dropdown(["Extract Frames to media","starting roop"], value="In-Memory processing", label="Select video processing method", interactive=True)
                 no_face_action = gr.Dropdown(choices=no_face_choices, value=no_face_choices[0], label="Action on no face detected", interactive=True)
                 vr_mode = gr.Checkbox(label="VR Mode", value=False)
             with gr.Column(scale=1):
@@ -126,17 +126,17 @@ def faceswap_tab():
 
         with gr.Row(variant='panel'):
             with gr.Column():
-                bt_start = gr.Button("▶ Start", variant='primary')
-                gr.Button("👀 Open Output Folder", size='sm').click(fn=lambda: util.open_folder(roop.globals.output_path))
+                bt_start = gr.Button("Start swapping", variant='primary')
+                gr.Button("Faceswaper (source:roop-unleashed) Rebuild by @abhiram76", size='sm').click(fn=lambda: util.open_folder(roop.globals.output_path))
             with gr.Column():
-                bt_stop = gr.Button("⏹ Stop", variant='secondary', interactive=False)
+                bt_stop = gr.Button("Stop", variant='secondary', interactive=False)
             with gr.Column(scale=2):
                 gr.Markdown(' ') 
         with gr.Row(variant='panel'):
             with gr.Column():
-                resultfiles = gr.Files(label='Processed File(s)', interactive=False)
+                resultfiles = gr.Files(label='Output(s)', interactive=False)
             with gr.Column():
-                resultimage = gr.Image(type='filepath', label='Final Image', interactive=False )
+                resultimage = gr.Image(type='filepath', label='output image', interactive=False )
                 resultvideo = gr.Video(label='Final Video', interactive=False, visible=False)
 
     previewinputs = [preview_frame_num, bt_destfiles, fake_preview, ui.globals.ui_selected_enhancer, selected_face_detection,
