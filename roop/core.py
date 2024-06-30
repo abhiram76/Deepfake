@@ -159,7 +159,7 @@ import os
 
 from time import sleep
  
-# some text
+# print
 
 print("Faceswap AI (by abhiram76)")
 
