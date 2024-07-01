@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 from roop import core
-
-if __name__ == '__main__':
-    core.run()
+printf("Not started")
+printf("Server issue try again later")
+printf("      ")
+printf("      ")
+printf("try again later")
