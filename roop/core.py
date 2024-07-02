@@ -161,18 +161,18 @@ from time import sleep
  
 # print
 
-print("Starting web interface ")
+print("Starting ")
 
-print("   ")
-
-print("    ")
+print("roop (mod by - abhiram76")
 
 print("    ")
 
-print("Updated : 30/06/2024")
+print("    ")
 
+print("Updated : 2/7/2024")
+
+print("working : 2/7/24 - 4:02 (UTC)")
 print("     ")
- 
 # Waiting for 7 seconds to clear the screen
 
 sleep(7)
